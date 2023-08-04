@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div id="pt">
+      <div class="container mt-5">
+          <div><h1>Bill Details:</h1> </div>
+          <div>
+              <table class="table">
+                  <tr>
+                        <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:15px;">
+                            Invoice Number: {{data.id}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:15px;">
+                                Invoice Date: {{data.product_date}}
+                        </td>
+                    </tr>
+              </table>
+          </div>
+          
+
+          <div><h2>Seller</h2></div>
+
+                <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    
+                    {% for s in seller %}
+                    <tr>
+                        <td style="font-family:Verdana, Geneva, sans-serif; font-weight:400; font-size:14px;">
+                            <b>Name</b> 
+                        </td>
+                        <td>
+                            {{s.name}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Verdana, Geneva, sans-serif; font-weight:400; font-size:14px;">
+                            <b>Address </b> 
+                        </td>
+                        <td>
+                            {{s.address}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Phone</b>
+                        </td>
+                        <td>
+                            {{s.phone}}
+                        </td>
+                    </tr>    
+                    {% endfor %}
+                </table>
+
+                <div><h2>Buyer</h2></div>
+
+                <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:400; font-size:14px;">
+                        <b>Name</b> 
+                    </td>
+                    <td>
+                        {{data.bname}}
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:400; font-size:14px;">
+                        <b>Address </b> 
+                    </td>
+                    <td>
+                        {{data.baddress}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Phone</b>
+                    </td>
+                    <td>
+                        {{data.bphone}}
+                    </td>
+                </tr>   
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:13px; border-top:1px solid #333; border-bottom:1px solid #333; border-left:1px solid #333; border-right:1px solid #333;"
+                        width="34%" height="32" align="center">Product</td>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:13px; border-top:1px solid #333; border-bottom:1px solid #333; border-right:1px solid #333;"
+                        width="30%" align="center">Quantity</td>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:13px; border-top:1px solid #333; border-bottom:1px solid #333; border-right:1px solid #333;"
+                        width="30%" align="center">Amount</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:300; font-size:13px; border-bottom:1px solid #333; border-left:1px solid #333; border-right:1px solid #333;"
+                        height="32" align="center">{{data.pname}}</td>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:300; font-size:13px; border-bottom:1px solid #333; border-right:1px solid #333;"
+                        align="center">{{data.pquantity}}</td>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:300; font-size:13px; border-bottom:1px solid #333; border-right:1px solid #333;"
+                        align="center">{{data.pprice}}</td>
+                </tr>
+                <tr>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:13px; border-top:1px solid #333; border-bottom:1px solid #333; border-left:1px solid #333; border-right:1px solid #333;"
+                        width="34%" height="32" align="center">Grand Total</td>
+                    <td style="font-family:Verdana, Geneva, sans-serif; font-weight:600; font-size:13px; border-top:1px solid #333; border-bottom:1px solid #333; border-right:1px solid #333;"
+                        width="30%" align="center" colspan="2">{{data.ptotal}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    </table>
+    <button onclick="myfun('pt')" class="btn btn-primary mt-3">Get Bill</button>
+</div>
+
+</div>
+
+<script type="text/javascript">
+    function myfun(pa){
+    var bk = document.body.innerHTML;
+    var dv = document.getElementById(pa).innerHTML;
+        document.body.innerHTML = dv;
+        window.print();
+    }
+
+</script>
+
+{% endblock %}

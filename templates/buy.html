@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container ">
+    <div class="p-4 m-4 ">
+        <div class="col-lg-6 mx-auto border border-primary p-3 ">
+
+
+            <form method="post" action="">
+                {% csrf_token %}
+            <div class="form-group">
+
+    <label for="name">Name:</label>
+     <input type="text" name="name" class="form-control" id="name"  placeholder="Enter your  name">
+
+   <label for="address">Address:</label>
+     <input type="text" name="address" class="form-control" id="address"  placeholder="Enter your  address">
+
+   <label for="name">Phone:</label>
+     <input type="text" name="phone" class="form-control" id="phone"  placeholder="Enter your  phone">
+
+    <label for="quantity">Quantity:</label>
+     <input type="number" name="quantity" class="form-control" id="quantity"  placeholder="Enter your  quantity">
+
+     <input type="submit" class="btn btn-secondary m-2 mx-auto"  value="Purchase">
+  </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
